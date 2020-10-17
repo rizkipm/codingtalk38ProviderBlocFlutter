@@ -4,6 +4,10 @@
 
 import 'dart:convert';
 
+List<ResPost> resPostFromJson(String str) => List<ResPost>.from(json.decode(str).map((x) => ResPost.fromJson(x)));
+
+String resPostToJson(List<ResPost> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+
 class ResPost {
   ResPost({
     this.userId,
@@ -16,10 +20,6 @@ class ResPost {
   int id;
   String title;
   String body;
-
-  factory ResPost.fromRawJson(String str) => ResPost.fromJson(json.decode(str));
-
-  String toRawJson() => json.encode(toJson());
 
   factory ResPost.fromJson(Map<String, dynamic> json) => ResPost(
     userId: json["userId"],
