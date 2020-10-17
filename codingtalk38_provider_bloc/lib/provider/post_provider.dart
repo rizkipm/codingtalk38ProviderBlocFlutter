@@ -10,6 +10,11 @@ class PostProvider extends ChangeNotifier{
   List<ResPost> listPost = [];
   bool loading = false;
 
+  //menjalankan method post
+  PostProvider.initPost(){
+    getPosts();
+  }
+
   Future<void> getPosts() async{
     var url  = 'https://jsonplaceholder.typicode.com/posts';
     Response response = await http.get(url);
