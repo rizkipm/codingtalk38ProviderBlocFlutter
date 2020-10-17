@@ -16,6 +16,8 @@ class PostProvider extends ChangeNotifier{
   }
 
   Future<void> getPosts() async{
+    loading = true;
+    notifyListeners();//memberitahu kalau ada perubahan setelah get data
     var url  = 'https://jsonplaceholder.typicode.com/posts';
     Response response = await http.get(url);
     listPost = resPostFromJson(response.body);

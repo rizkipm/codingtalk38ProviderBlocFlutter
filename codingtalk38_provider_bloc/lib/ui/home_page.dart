@@ -29,9 +29,11 @@ class HomePage extends StatelessWidget {
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),//agar bisa d scroll
                     itemBuilder: (context, index){
-                    return ListTile(
-                      title: Text(value.listPost[index].title),
-                      subtitle: Text(value.listPost[index].body),
+                    return Card(
+                      child: ListTile(
+                        title: Text(value.listPost[index].title),
+                        subtitle: Text(value.listPost[index].body),
+                      ),
                     );
                 });
               }
