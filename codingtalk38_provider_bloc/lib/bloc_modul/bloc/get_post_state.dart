@@ -7,9 +7,20 @@ abstract class GetPostState extends Equatable{
   List<Object> get props => [];
 }
 
-class GetPostLoading extends GetPostState{}
 
 class GetPostInitial extends GetPostState{}
+
+class GetPostLoading extends GetPostState{
+
+  GetPostLoading(){
+   print(toString());
+  }
+
+  @override
+  String toString() {
+    return 'GetPostLoading{}';
+  }
+}
 
 class GetPostError extends GetPostState{
 
