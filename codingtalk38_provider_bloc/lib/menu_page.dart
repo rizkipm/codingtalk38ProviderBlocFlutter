@@ -1,4 +1,5 @@
 import 'package:codingtalk38_provider_bloc/ui/home_page.dart';
+import 'package:codingtalk38_provider_bloc/ui/page_ui_bloc.dart';
 import 'package:flutter/material.dart';
 
 class MenuPage extends StatelessWidget {
@@ -25,7 +26,7 @@ class MenuPage extends StatelessWidget {
             child: Text('Bloc'),
             onPressed: (){
 
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> PageHomeBloc()));
             },
             color: Colors.green,
             textColor: Colors.white,
