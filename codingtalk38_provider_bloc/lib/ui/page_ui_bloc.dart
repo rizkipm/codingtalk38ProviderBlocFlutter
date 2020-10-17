@@ -14,26 +14,39 @@ class PageHomeBloc extends StatelessWidget {
 
       body: BlocProvider<GetPostBloc>(
         create: (context) => GetPostBloc(GetPostInitial()),
-        child: BlocBuilder<GetPostBloc, GetPostState>(
+        child: BlocConsumer<GetPostBloc, GetPostState>(
+          listener: ( context, state){
+            if(state is GetPostError) {
+              //kondisi kalau error
+              Scaffold.of(context).showSnackBar(
+                  SnackBar(content: Text(state.message),));
+            }
+          },
           builder: (BuildContext context, state){
             if(state is GetPostInitial){
               //mengambil fungsi get api
               BlocProvider.of<GetPostBloc>(context).add(EventGetPost());
             }
-            
+
             if(state is GetPostLoading){
               return Center(
                 child: CircularProgressIndicator(),
               );
             }
-            
+
             if(state is GetPostSuccess){
               return ListView.builder(
                   itemCount: state.listPost.length,
                   itemBuilder: (context, index){
-                    return Text(state.listPost[index].body);
+                    // return Text(state.listPost[index].body);
+                    return Card(
+                      child: ListTile(
+                        title: Text(state.listPost[index].title),
+                        subtitle: Text(state.listPost[index].body),
+                      ),
+                    );
 
-              });
+                  });
 
             }
             return Container();

@@ -18,7 +18,7 @@ class GetPostBloc extends Bloc<GetPostEvent, GetPostState>{
       //yield seperti return
       yield GetPostLoading();
       try{
-        var url = '';
+        var url = 'https://jsonplaceholder.typicode.com/posts';
         http.Response response = await http.get(url);
         List<ResPost> listPost = resPostFromJson(response.body);
         yield GetPostSuccess(listPost);
