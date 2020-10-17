@@ -1,3 +1,4 @@
+import 'package:codingtalk38_provider_bloc/menu_page.dart';
 import 'package:codingtalk38_provider_bloc/ui/home_page.dart';
 import 'package:flutter/material.dart';
 
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomePage(), debugShowCheckedModeBanner: false,
+      home: MenuPage(), debugShowCheckedModeBanner: false,
     );
   }
 }
