@@ -10,8 +10,14 @@ class HomePage extends StatelessWidget {
         title: Text('Provider Example'),
       ),
 
-      body: ChangeNotifierProvider(
-        create: (BuildContext context) => PostProvider.initPost(),//mengambil data dari page post provider
+      body: MultiProvider(//untuk yang lebih dari 1 provider
+        providers: [
+          ChangeNotifierProvider(
+            create: (BuildContext context) => PostProvider.initPost()),
+        ],
+      //kalau satu provider
+      // body: ChangeNotifierProvider(
+      //   create: (BuildContext context) => PostProvider.initPost(),//mengambil data dari page post provider
         child: ListView(
           children: [
             Center(child: Text('Daftar Posts', style: TextStyle(fontSize: 25),),),
